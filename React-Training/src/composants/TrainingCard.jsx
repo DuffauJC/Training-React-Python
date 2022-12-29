@@ -39,9 +39,6 @@ let item=props.item
                     <div className="description">
                         <h6>{item.description}</h6>
                     </div>
-                    <div className="cat-name">
-                        catégorie
-                    </div>
                     <div className="product-info smart-form">
                         <div className="row">
                             <div className="sold_stars ml-auto"> <i className="fa-solid fa-star"></i> <i className="fa-solid fa-star"></i> <i

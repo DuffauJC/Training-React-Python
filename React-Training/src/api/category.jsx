@@ -14,9 +14,9 @@ import { config } from '../config';
 
 // }
 
-export const getAllTraining = async () => {
+export const getAllCategories = async () => {
     try {
-        const response = await axios.get(config.api_url + "/api/trainings");
+        const response = await axios.get(config.api_url + "/api/categories");
         return response;
     } catch (err) {
         return err;
