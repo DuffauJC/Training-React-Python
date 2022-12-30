@@ -6,58 +6,57 @@ import { getAllCategories } from '../api/category';
 
 export default function Trainings() {
 
-    const [items, setItems] = useState([]);
-    const [categories, setCategories] = useState([])
-    
-    useEffect(() => {
+  const [items, setItems] = useState([]);
+  const [categories, setCategories] = useState([])
 
-        getAllTraining()
-            .then((res) => {
-                setItems(res.data)
-            })
-        getAllCategories().then((res) => {
-            setCategories(res.data)
-        })
+  useEffect(() => {
 
-    }, [setItems, setCategories])
+    getAllTraining()
+      .then((res) => {
+        setItems(res.data)
+      })
+    getAllCategories().then((res) => {
+      setCategories(res.data)
+    })
 
-    const trainingByCat = (cat) => {
-        
-        let trainingsByCat = cat.trainings
-        setItems(trainingsByCat)
-    }
+  }, [setItems, setCategories])
 
-    const refresh = () => {
-        getAllTraining()
-            .then((res) => {
-                setItems(res.data)
-            })
-    }
+  const trainingByCat = (cat) => {
+    let trainingsByCat = cat.trainings
+    setItems(trainingsByCat)
+  }
 
-    return (
-        <div className="container">
-            <img src="/img/refresh.png" alt="194x228" className='refresh_img' onClick={(e) => {
-                e.preventDefault()
-                refresh()
-            }} />
-        <div className="catSelect d-flex">
-          {categories?.map((cat) => {
-            return (
-                <div className="cityCard" key={cat.id} onClick={(e) => {
-                    e.preventDefault()
-                    trainingByCat(cat)
-                }}>
-                <h4>{cat.name}</h4>
-                <p> {cat.trainings.length} </p>
-              </div>
-            );
-          })}
-        </div>
-        <div className="md-6 d-flex flex-wrap listAdmin">
-          {items?.map((itm) => {
-            return <TrainingCard key={itm.id} item={itm} />;
-          })}
-        </div>
+  const refresh = () => {
+    getAllTraining()
+      .then((res) => {
+        setItems(res.data)
+      })
+  }
+
+  return (
+    <div className="wrapper">
+      <div className="catSelect">
+        <img src="/img/refresh.png" alt="194x228" className='refresh_img' onClick={(e) => {
+        e.preventDefault()
+        refresh()
+      }} /> 
+        {categories?.map((cat) => {
+          return (
+            <div className="catCard" key={cat.id} onClick={(e) => {
+              e.preventDefault()
+              trainingByCat(cat)
+            }}>
+              <p>{cat.name} ({cat.trainings.length})</p>
+            </div>
+             
+          );
+        })}
       </div>
-    );
+      <div className="listTraining">
+        {items?.map((itm) => {
+          return <TrainingCard key={itm.id} item={itm} />;
+        })}
+      </div>
+    </div>
+  );
 }
