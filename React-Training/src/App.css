@@ -11,7 +11,7 @@ body {
 .wrapper {
   margin-left: 30px;
   margin-right: 30px;
-  margin-top: 70px;
+  margin-top: 30px;
 }
 
 .home {
@@ -49,7 +49,6 @@ body {
   font-size: 15px;
   margin: 0;
   margin-left: 50px;
- 
 }
 
 #linkAdmin {
@@ -57,11 +56,11 @@ body {
   font-style: italic;
   text-decoration: underline;
 }
-.img_cart{
+.img_cart {
   width: 20px;
   margin-right: 10px;
 }
-.img_avatar{
+.img_avatar {
   width: 20px;
 }
 
@@ -181,13 +180,12 @@ body {
   transform: rotate(-405deg);
 }
 
-/* *******************   product ************ */
+/* *******************  trainings ************ */
 .listTraining {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  margin-left: 100px;
 }
 
 .x-del {
@@ -215,18 +213,19 @@ body {
 
 .sold_stars i {
   color: orange;
+  width: 15px;
 }
 .img-responsive {
-  height: 50px;
+  height: 70px;
 }
 .product-content {
+  position: relative;
   border: 1px solid #fcd6a1;
   margin-bottom: 20px;
   margin-top: 12px;
   padding: 4px;
-  box-shadow: 10px 10px 5px 0px rgba(255, 127, 80, 0.75);
-  width: 200px;
-  height: 340px;
+  width: 150px;
+  height: 300px;
   text-align: center;
 }
 
@@ -234,37 +233,36 @@ body {
   background-color: #fff;
   display: block;
   overflow: hidden;
-  position: relative;
 }
 
-.product-content .product-deatil {
+.product-content .product-price {
   border-bottom: 1px solid #dfe5e9;
-  padding-bottom: 17px;
   padding-left: 16px;
   padding-top: 16px;
-  position: relative;
 }
 
 .description {
   font-size: 12.5px;
-  line-height: 20px;
-  padding: 10px 14px 16px 19px;
+  padding: 5px;
   background: #fff;
 }
 
 .product-info {
-  padding: 11px 19px 10px 20px;
+  position: absolute;
+  bottom: 30px;
+  left: 5px;
 }
 
-.price-container span {
-  color: #21c2f8;
+.product-price p {
+  color: purple;
   font-family: Lato, sans-serif;
-  font-size: 24px;
-  line-height: 20px;
+  font-size: 20px;
+  background-color: #ff0;
+  border-radius: 5px;
 }
 
-.product-deatil {
-  padding: 30px 30px 50px;
+.product-price {
+  padding-right: 20px;
 }
 
 .price-container {
@@ -275,14 +273,18 @@ body {
 
 /* ********  card categories ****************/
 .catSelect {
+  margin: auto;
   position: sticky;
-  top: 70px;
+  top: 60px;
+  z-index: 30;
+  display: flex;
+  justify-content: space-around;
 }
 .catCard {
   cursor: pointer;
-  width: 80px;
-  box-shadow: 5px 5px 5px 0px rgba(255, 127, 80, 0.75);
+  width: 90px;
   background-color: #fcd6a1;
+  border-right: 1px solid chartreuse;
 }
 .catCard:hover {
   background-color: #dcff50;
@@ -303,17 +305,19 @@ body {
 }
 
 /* bouton ajout panier ****************************/
-
+/* mode 768 + à faire */
 .cart-button {
-  position: relative;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
   background-color: #fcd6a1;
-  color: #fff;
+  color: white;
   border-radius: 5px;
-  height: 48px;
+  height: 30px;
   padding: 10px;
   overflow: hidden;
   border: none;
-  width: 170px !important;
+  width: 140px !important;
   margin: auto;
 }
 
@@ -329,17 +333,17 @@ body {
   position: absolute;
   z-index: 2;
   top: 50%;
-  left: 22%;
+  left: 20%;
   font-size: 1.2em;
   transform: translate(-50%, -50%);
 }
 
-.cart-button .fa-circle-thin {
+.cart-button .fa-cart-shopping {
   position: absolute;
   z-index: 1;
   top: 50%;
   left: -20%;
-  font-size: 1.5em;
+  font-size: 1.2em;
   transform: translate(-50%, -50%);
 }
 
@@ -350,15 +354,16 @@ body {
   left: 20%;
   font-size: 0.7em;
   transform: translate(-50%, -50%);
+  color: purple;
 }
 
 .cart-button span {
   position: absolute;
-  left: 50%;
+  left: 65px;
   top: 50%;
-  color: #fff;
+  color: purple;
   transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .cart-button span.added {
@@ -373,7 +378,7 @@ body {
   animation: color 2s ease-in forwards;
 }
 
-.cart-button.clicked .fa-circle-thin {
+.cart-button.clicked .fa-cart-shopping {
   animation: circle 1s ease-in forwards;
 }
 
@@ -450,12 +455,12 @@ body {
 
 @keyframes color {
   0% {
-    background-color: black;
+    background-color: pink;
   }
 
   80%,
   100% {
-    background-color: green;
+    background-color: #fcd6a1;
   }
 }
 
@@ -469,17 +474,16 @@ body {
     display: block;
   }
   .product-content {
-  margin-bottom: 20px;
-  margin-top: 12px;
-  padding: 4px;
-  width: 220px;
-  height: 340px;
-}
+    margin-bottom: 20px;
+    margin-top: 12px;
+    padding: 4px;
+    width: 220px;
+    height: 340px;
+  }
 
   .cart-button {
     width: 100px !important;
     height: 48px;
-   
   }
   .img-responsive {
     height: 50px;

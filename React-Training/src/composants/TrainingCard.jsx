@@ -1,10 +1,10 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 
 export default function TrainingCard(props) {
-   
-let item=props.item
 
-    
+    let item = props.item
+
+
     useEffect(() => {
 
     }, [])
@@ -14,7 +14,7 @@ let item=props.item
     }
 
     const cartClick = (e) => {
-        const button=e.currentTarget
+        const button = e.currentTarget
         button.classList.add('clicked')
 
         setTimeout(() => {
@@ -24,40 +24,36 @@ let item=props.item
 
     return (
         <div className="product-content product-wrap">
-            <div className="row">
+            <div className='row'>
                 <div className="col-md-5 col-sm-12 col-xs-12">
                     <div className="product-image">
                         <img src={`${/img/}${item.imgurl}`} alt="194x228" className="img-responsive" />
                     </div>
                 </div>
                 <div className="col-md-7 col-sm-12 col-xs-12">
-                    <div className="product-deatil">
-                        <p className="price-container">
-                            <span>{item.price} €</span>
-                        </p>
+                    <div className="product-price">
+                        <p>{item.price}€ </p>
                     </div>
                     <div className="description">
-                        <h6>{item.description}</h6>
+                        <p>{item.description}</p>
                     </div>
-                    <div className="product-info smart-form">
-                        <div className="row">
-                            <div className="sold_stars ml-auto"> <i className="fa-solid fa-star"></i> <i className="fa-solid fa-star"></i> <i
-                                className="fa-solid fa-star"></i> <i className="fa-solid fa-star"></i> <i className="fa-solid fa-star"></i>
-                            </div>
-                            <button className="cart-button" onClick={(e) => {
-                                cartClick(e)
-                                e.preventDefault()
-                                onAddToCart(item)
-                            }} > <span className="add-to-cart">Add to
-                                cart</span>
-                                <span className="added">Item
-                                    added</span> <i className="fa fa-plus"></i> <i className="fa fa-circle-thin"></i> <i
-                                        className="fa fa-check"></i>
-                            </button>
-                        </div>
-                    </div>
+
                 </div>
             </div>
+            <div className="product-info">
+                <div className="sold_stars ml-auto"> <i className="fa-solid fa-star"></i> <i className="fa-solid fa-star"></i> <i
+                    className="fa-solid fa-star"></i> <i className="fa-solid fa-star"></i> <i className="fa-solid fa-star"></i> (518)
+                </div>
+            </div>
+            <button className="cart-button" onClick={(e) => {
+                cartClick(e)
+                e.preventDefault()
+                onAddToCart(item)
+            }} > <span className="add-to-cart">Add to
+                cart</span>
+                <span className="added">
+                    Added</span> <i className="fa-light fa-plus"></i> <i class="fa-solid fa-cart-shopping"></i> <i class="fa-solid fa-check"></i>
+            </button>
         </div>
     )
 }
