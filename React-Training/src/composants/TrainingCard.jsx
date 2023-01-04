@@ -52,7 +52,7 @@ export default function TrainingCard(props) {
             }} > <span className="add-to-cart">Add to
                 cart</span>
                 <span className="added">
-                    Added</span> <i className="fa-light fa-plus"></i> <i class="fa-solid fa-cart-shopping"></i> <i class="fa-solid fa-check"></i>
+                    Added</span> <i className="fa-light fa-plus"></i> <i className="fa-solid fa-cart-shopping"></i> <i className="fa-solid fa-check"></i>
             </button>
         </div>
     )

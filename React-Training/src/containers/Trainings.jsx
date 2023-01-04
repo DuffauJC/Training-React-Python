@@ -36,7 +36,7 @@ export default function Trainings() {
   return (
     <div className="wrapper">
      
-        <div className="catSelect">
+        <div className="catSelect" id='hautdepage'>
           <img src="/img/refresh.png" alt="194x228" className='refresh_img' onClick={(e) => {
             e.preventDefault()
             refresh()
@@ -57,7 +57,8 @@ export default function Trainings() {
           {items?.map((itm) => {
             return <TrainingCard key={itm.id} item={itm} />;
           })}
-        </div>
+      </div>
+      <a href="#hautdepage"className='retour_haut'><img className='arrow-up' src="/img/up-arrow.png" alt="" /></a>
       </div>
   );
 }

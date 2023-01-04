@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 
@@ -12,9 +12,19 @@ export default function Header() {
     let caddySize = 0
     // let admin = false
 
+    let input
+
+    useEffect(() => {
+        let link = document.querySelectorAll('li')
+        link.forEach(l => l.addEventListener('click', () =>
+            input = document.getElementById('menu-toggle').checked = false
+        ))
+    }, [input])
+
+
     return (
         <div className="navbar navbar-expand-sm navbar-light" id="header">
-            
+
             <h1>SHOPPING SHOPPANG</h1>
             <input id="menu-toggle" type="checkbox" />
             <label className='menu-button-container' htmlFor="menu-toggle">
