@@ -1,16 +1,38 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import { useRecoilState } from "recoil"
+import { caddyState } from '../store/atoms'
 
 export default function TrainingCard(props) {
 
     let item = props.item
+    let cartName = 'cart'
+    const [cart,setCart] = useRecoilState(caddyState);
 
-
-    useEffect(() => {
-
-    }, [])
-
+    //Initialisation du local storage (panier)
+    let caddy = window.localStorage;
+    let tab = JSON.parse(caddy.getItem(cartName));
+    if (tab === null) {  // le panier existe déjà
+        tab = []
+    }
+    // add item to locastorage
     const onAddToCart = (item) => {
-        // cartService.addTraining(item)
+        //vérification si l'id de l'argument panier est le même que produit
+        let same = tab.findIndex((it) => it.id === item.id)
+        //si il n'est pas le mm
+        if (same === -1) {
+            //ajout du produit à notre panier
+            tab.push(item)
+            setCart(tab)
+            //sinon
+        } else {
+            //mise à jour de la quantité du produit concerné (panier)
+            tab[same].quantity+=1
+            setCart(tab)
+        }
+        saveCart(); //à chaque fois que j'ajoute un élément au panier, je met à jour le local storage
+    }
+    const saveCart = () => {
+        caddy.setItem(cartName, JSON.stringify([...tab]));
     }
 
     const cartClick = (e) => {
