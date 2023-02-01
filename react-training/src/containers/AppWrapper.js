@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, Outlet } from 'react-router-dom';
 import { caddyState } from '../store/atoms'
-import { useRecoilState, useRecoilValue } from "recoil"
+import { useRecoilValue } from "recoil"
 
 export default function AppWrapper() {
 

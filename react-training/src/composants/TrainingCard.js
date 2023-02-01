@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRecoilState } from "recoil"
-import { caddyState } from '../store/atoms'
+import { caddyState,saveCart } from '../store/atoms'
 
 export default function TrainingCard(props) {
 
@@ -29,10 +29,7 @@ export default function TrainingCard(props) {
             tab[same].quantity+=1
             setCart(tab)
         }
-        saveCart(); //à chaque fois que j'ajoute un élément au panier, je met à jour le local storage
-    }
-    const saveCart = () => {
-        caddy.setItem(cartName, JSON.stringify([...tab]));
+        saveCart(tab); //à chaque fois que j'ajoute un élément au panier, je met à jour le local storage
     }
 
     const cartClick = (e) => {

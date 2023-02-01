@@ -455,6 +455,79 @@ body {
   }
 }
 
+/*  caddy **************************************** */
+
+#emptyCard {
+  border: 2px solid coral;
+  box-shadow: 10px 10px 5px 0px rgba(255, 127, 80, 0.75);
+}
+
+.shopping-cart {
+  margin-bottom: 20px;
+}
+
+.shopping-cart.table {
+  margin-bottom: 0;
+}
+
+.shopping-cart.btn {
+  margin: 0;
+}
+
+.shopping-cart > table > thead,
+.shopping-cart > table > tbody {
+  border-bottom: coral;
+}
+
+.shopping-cart > table > thead > tr > th,
+.shopping-cart > table > thead > tr > td,
+.shopping-cart > table > tbody > tr > th,
+.shopping-cart > table > tbody > tr > td {
+  vertical-align: middle !important;
+}
+
+.shopping-cart > table thead th {
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+
+.caddy-item {
+  display: table;
+  width: 100%;
+  min-width: 150px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.caddy-thumb,
+.caddy-info {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.caddy-thumb {
+  padding-right: 20px;
+  width: 70px;
+}
+
+.caddy-item .caddy-thumb > img {
+  display: block;
+  width: 100%;
+}
+.shopping-cart-footer {
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid coral
+}
+.shopping-cart-footer span{
+  position: relative;
+  left: 75%;
+}
+.caddy-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 /* responsive ************ */
 /* A partir de 768px de largeur (point de rupture) TABLETTE */
 @media screen and (min-width: 768px) {
@@ -490,7 +563,17 @@ body {
   .cart-button span {
     left: 100px;
   }
+
+  /* caddy*** */
+  .shopping-cart-footer {
+    width: 100%;
+    padding: 10px 0;
+  }
+  .caddy-thumb{
+   width: 130px;
+  }
 }
+
 /* ************************* */
 /* A partir de 1280px de largeur (point de rupture) ORDINATEUR */
 @media screen and (min-width: 1280px) {
@@ -538,5 +621,4 @@ body {
   .retour_haut {
     left: 95%;
   }
-
 }

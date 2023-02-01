@@ -10,10 +10,6 @@ import {
 
 function App() {
 
-  useEffect(() => {
-
-  }, [])
-
   return (
     <RecoilRoot>
       <div className="App">
