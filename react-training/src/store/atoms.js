@@ -1,6 +1,4 @@
-import { atom, selector, RecoilEnv } from "recoil"
-import { getAllTraining } from '../api/training'
-import { getAllCategories } from '../api/category';
+import { atom, RecoilEnv } from "recoil"
 
 // suppression warning
 // Expectation Violation: Duplicate atom key "......"
@@ -42,26 +40,12 @@ export const clear = () => {
 
 /////////////////////////////////////////
 // TrainingList
-// export const trainingList = selector({
-//     key: 'trainList',
-//     get: async () => {
-//         const response = await getAllTraining()
-//         return response.data
-//     },
-// });
 export const trainingList = atom({
     key: 'trainList',
     default: []
 });
 /////////////////////////////////////////
 // CategoriesList
-// export const categoriesList = selector({
-//     key: 'catList',
-//     get: async () => {
-//         const response = await getAllCategories()
-//         return response.data
-//     },
-// });
 export const categoriesList = atom({
     key: 'catList',
     default: []

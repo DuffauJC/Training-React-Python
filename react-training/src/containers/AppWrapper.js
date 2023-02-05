@@ -5,13 +5,7 @@ import { useRecoilValue } from "recoil"
 
 export default function AppWrapper() {
 
-    //    let customer = { "unknown", "", "", "", "", "", "" }
-    // let name = "User"
-    // let role = ""
-    // let display = false
-    // let loggin = true
-    // let logout = false
-    // let admin = false
+    let user = null
 
     let input
     const cart = useRecoilValue(caddyState);
@@ -22,11 +16,16 @@ export default function AppWrapper() {
         link.forEach(l => l.addEventListener('click', () =>
             input = document.getElementById('menu-toggle').checked = false
         ))
+
     }, [input])
 
 
-    // au démarrage du service, je récupère le contenu du local storage : command en cours
-
+    // je récupère le user
+    const getuserrFromStorage = () => {
+        user = window.localStorage.getItem('user')
+        if (user) return JSON.parse(user);
+        return "unknown"
+    }
 
     return (
         <div>
@@ -44,25 +43,14 @@ export default function AppWrapper() {
                     <li>
                         <Link to="/trainings">Trainings</Link>
                     </li>
-                    <li>
-                        <Link to="/register">Register</Link>
-                    </li>
-                    <li>
-                        <Link to="/login">Login</Link>
-                    </li>
-                    <li>
-                        <Link to="/logout">Logout</Link>
-                    </li>
-                    <li>
-                        <Link to="/admin" id="linkAdmin" >ADMIN</Link>
-                    </li>
                 </ul>
+                <span className='welcome'> Bienvenue {getuserrFromStorage().name}</span>
                 <div className="Caddy">
                     <Link to="/caddy">
                         <img src="/img/cart.png" className="img_cart" alt="Panier" />
                     </Link>
                     <h3 id="qty-cart">{caddySize}</h3>
-                    <img src="/img/avatar.png" className='img_avatar' />
+                     <img className='img_avatar' src="/img/avatar.png" />
                 </div>
             </div>
             <Outlet />

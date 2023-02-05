@@ -5,7 +5,7 @@ import Home from "./containers/Home";
 import AppWrapper from "./containers/AppWrapper";
 import Trainings from "./containers/Trainings";
 import Caddy from "./containers/Caddy";
-
+import Order from "./containers/Order";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: "/caddy", // yes, again
                 element: <Caddy />
+            },
+            {
+                path: "/order", // yes, again
+                element: <Order />
             },
         ]
     }

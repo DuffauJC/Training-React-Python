@@ -67,8 +67,14 @@ body {
 }
 .img_avatar {
   width: 20px;
+  margin-left: 20px;
 }
-
+.welcome {
+  font-size: 30px;
+  font-weight: bolder;
+  font-style: italic;
+  margin-left: 100px;
+}
 .Caddy {
   position: absolute;
   display: flex;
@@ -517,17 +523,118 @@ body {
 .shopping-cart-footer {
   width: 100%;
   padding: 10px 0;
-  border-top: 1px solid coral
+  border-top: 1px solid coral;
 }
-.shopping-cart-footer span{
+.shopping-cart-footer span {
   position: relative;
   left: 75%;
 }
 .caddy-links {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*********** order ***********/
+#customerNotes p,
+.payMethod p {
+  color: black;
+}
+#orderCard,
+#customerNotes,
+#shippingInfo,
+#payInfo {
+  border: 1px solid coral;
+  box-shadow: 10px 10px 5px 0px rgba(255, 127, 80, 0.75);
+}
+#payInfo button{max-width: 200px;}
+/* ****** order confirm */
+/* Set a style for all buttons */
+.cancelbtn,
+.confirmbtn {
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  float: left;
+  width: 50%;
+}
+
+.cancelbtn:hover,
+.confirmbtn:hover {
+  opacity: 1;
+}
+
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.confirmbtn {
+  background-color: #f44336;
+}
+
+/* Add padding and center-align text to the container */
+#modal-confirm-container {
+  padding: 16px;
+  text-align: center;
+}
+
+#modal-confirm-container>h1,
+p {
+  color: white;
+}
+
+/* The Modal (background) */
+#modal-confirm {
+  position: fixed;
+  z-index: 1;
+  left: 25%;
+  top: 15%; 
+  border: 3px solid coral;
+  width: 50%;
+  overflow: visible;
+  background-color: #646569;
+  padding-top: 50px;
+  box-shadow: 10px 10px 5px 0px rgba(255, 127, 80, 0.75);
+}
+
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+#modal-confirm.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+
+  .cancelbtn,
+  .confirmbtn {
+    width: 100%;
   }
+}
 /* responsive ************ */
 /* A partir de 768px de largeur (point de rupture) TABLETTE */
 @media screen and (min-width: 768px) {
@@ -569,8 +676,8 @@ body {
     width: 100%;
     padding: 10px 0;
   }
-  .caddy-thumb{
-   width: 130px;
+  .caddy-thumb {
+    width: 130px;
   }
 }
 

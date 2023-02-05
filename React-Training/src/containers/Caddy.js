@@ -1,15 +1,11 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useRecoilValue, useRecoilState } from "recoil"
+import { useRecoilState } from "recoil"
 import { caddyState, getTotal, saveCart, clear } from '../store/atoms'
 import { Link } from 'react-router-dom';
 
 export default function Caddy() {
 
     let total = 0
-    let display = false
-    let problemOrder = false
-
     //Initialisation du local storage (panier)
     let cartName = 'cart'
     let caddy = window.localStorage
@@ -17,9 +13,6 @@ export default function Caddy() {
     const [cart, setCart] = useRecoilState(caddyState);
     total = getTotal()
 
-    useEffect(() => {
-
-    }, [])
 
     // delete item from caddy
     const onDelToCart = (item) => {
@@ -39,17 +32,7 @@ export default function Caddy() {
         clear()
         setCart([])
     }
-    // valide order from caddy wuith user session
-    const onToOrder = () => {
-        // let customer = authenticateService.getCustomerFromStorage()
-        // // console.log(customer)
-        // if (customer.firstName === "unknown") {
-        //     problemOrder = true
-        // } else {
-        //     router.navigateByUrl('order')
-        // }
-    }
-
+ 
     return (
         <div className="container padding-bottom-3x mb-1">
             <div className="table-responsive shopping-cart">
@@ -101,9 +84,7 @@ export default function Caddy() {
                                     <i className="icon-arrow-left"></i>&nbsp;Back to
                                     Shopping
                                 </Link>
-                                <button className="btn btn-success" onClick={(e) => {
-                                    console.log('click')
-                                }} >Checkout</button>
+                                <Link to="/order" className="btn btn-success">Checkout</Link>
                             </div>
                         </div>
                     </div> :
@@ -130,13 +111,6 @@ export default function Caddy() {
                         </div>
                     </div>}
 
-
-
-
-                <div className=" alert alert-danger mt-5 col-md-3">
-                    Pour commander connectez - vous, ou créer un compte.
-                    <Link to="/login" className="btn btn-outline-secondary"  > Se connecter</Link>
-                </div>
             </div>
         </div>
     )
